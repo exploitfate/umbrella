@@ -9,7 +9,6 @@ if [ ! -f "$SYSTEMD_SERVICE_UNIT_PATH" ]; then
 Description=Propagate DNS cache with top 200k CISCO Umbrella domains
 PartOf=named.service
 After=named.service
-Requires=named.service
 
 [Service]
 Type=simple
@@ -22,6 +21,10 @@ WantedBy=named.target
   sudo chmod 664 $SYSTEMD_SERVICE_UNIT_PATH
   sudo systemctl daemon-reload
   sudo systemctl enable $SERVICE_NAME_FILE
+  sudo mkdir -p /etc/systemd/system/named.service.d/
+  echo "[Unit]
+Requires=umbrella.service
+" | sudo tee /etc/systemd/system/named.service.d/override.conf > /dev/null 2>&1
 fi
 
 if [ ! -f "$UMBRELLA_PATH" ]; then
