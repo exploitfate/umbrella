@@ -6,13 +6,18 @@ UMBRELLA_PATH=/usr/local/bin/umbrella.sh
 
 if [ ! -f "$SYSTEMD_SERVICE_UNIT_PATH" ]; then
   echo "[Unit]
+Description=Propagate DNS cache with top 200k CISCO Umbrella domains
+PartOf=named.service
 After=named.service
+Requires=named.service
 
 [Service]
+Type=simple
+Restart=always
 ExecStart=$UMBRELLA_PATH
 
 [Install]
-WantedBy=default.target
+WantedBy=named.target
 " | sudo tee $SYSTEMD_SERVICE_UNIT_PATH > /dev/null 2>&1
   sudo chmod 664 $SYSTEMD_SERVICE_UNIT_PATH
   sudo systemctl daemon-reload
