@@ -20,7 +20,7 @@ WantedBy=default.target
 fi
 
 if [ ! -f "$UMBRELLA_PATH" ]; then
-  sudo wget -nv -qO https://raw.githubusercontent.com/exploitfate/umbrella/main/umbrella.sh $UMBRELLA_PATH
+  sudo wget -nv -qO $UMBRELLA_PATH https://raw.githubusercontent.com/exploitfate/umbrella/main/umbrella.sh
   sudo chmod +x $UMBRELLA_PATH
 fi
 
