@@ -2,6 +2,6 @@
 
 ```bash
 
-wget https://raw.githubusercontent.com/exploitfate/umbrella/main/install.sh -O install.sh && bash install.sh
+wget -nv -qO https://raw.githubusercontent.com/exploitfate/umbrella/main/install.sh install.sh && bash install.sh
 
 ```
