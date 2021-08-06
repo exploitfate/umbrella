@@ -41,7 +41,7 @@ root_check() {
 			exec sudo bash "$0" "$@"
 			exit $?
 		else
-			# echo -e "\e[31;1m\t- please run dns-umbrella as root or install sudo\e[0m\n"
+			echo -e "\e[31;1m\t- please run dns-umbrella as root or install sudo\e[0m\n"
 			exit 1
 		fi
 	fi
@@ -59,7 +59,7 @@ create_directory() {
                 mkdir /opt/dns-umbrella
                 # echo -e "\t- done\n"
         else
-                # echo -e "\t- directory already exists, skipping ...\n"
+                echo -e "\t- directory already exists, skipping ...\n"
         fi
 }
 
@@ -103,7 +103,7 @@ download_list() {
 		mv /opt/dns-umbrella/top-1m.csv /opt/dns-umbrella/domains_raw
 		# echo -e "\t- done\n"
 	else
-		# echo -e "\t- top domains list already exists, skipping ...\n"
+		echo -e "\t- top domains list already exists, skipping ...\n"
 	fi
 }
 
@@ -190,7 +190,7 @@ custom_domains() {
 		/opt/dns-umbrella/dig_commands_custom
 		# echo -e "\t- done\n"
 	else
-		# echo -e "\t- custom domains list not found, skipping ...\n"
+		echo -e "\t- custom domains list not found, skipping ...\n"
 	fi
 }
 
