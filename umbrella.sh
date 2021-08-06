@@ -97,6 +97,7 @@ download_list() {
 	echo "downloading the top domains list ..."
 	if [ ! -f /opt/dns-umbrella/domains_raw ]; then
 		echo -e "\tthis may take some time"
+		wget -nv -qO /opt/dns-umbrella/top-1m.csv.zip ${domain_list_url}
 		unzip -q -o /opt/dns-umbrella/top-1m.csv.zip -d /opt/dns-umbrella
 		sudo rm /opt/dns-umbrella/top-1m.csv.zip
 		mv /opt/dns-umbrella/top-1m.csv /opt/dns-umbrella/domains_raw
