@@ -27,7 +27,7 @@ resolver_port="53"
 # the number of unique domains we'll query for, preferably divisible
 # by four
 # 500 domains is a nice "safe" number
-total_domains="200000"
+total_domains="100000"
 
 # Use parallel by default
 use_parallel="yes"
@@ -136,7 +136,7 @@ prepare_domains
 split_dig_commands() {
 	echo "splitting dig commands ..."
 	# split into batches
-	let split_limit="${total_domains} / 4"
+	let split_limit="${total_domains} / 8"
 	split -d -l ${split_limit} /opt/dns-umbrella/dig_commands_main /opt/dns-umbrella/dig_commands_split
 	echo -e "\t- done\n"
 	echo "making split dig command lists exectuable ..."
@@ -150,7 +150,7 @@ split_dig_commands() {
 run_parallel_dig_commands() {
 	echo "running dig commands in parallel ..."
 	# use gnu parallel to do exactly what it sounds like
-	parallel -u ::: /opt/dns-umbrella/dig_commands_split00 /opt/dns-umbrella/dig_commands_split01 /opt/dns-umbrella/dig_commands_split02 /opt/dns-umbrella/dig_commands_split03
+	parallel -u ::: /opt/dns-umbrella/dig_commands_split00 /opt/dns-umbrella/dig_commands_split01 /opt/dns-umbrella/dig_commands_split02 /opt/dns-umbrella/dig_commands_split03 /opt/dns-umbrella/dig_commands_split04 /opt/dns-umbrella/dig_commands_split05 /opt/dns-umbrella/dig_commands_split06 /opt/dns-umbrella/dig_commands_split07
 	echo -e "\t- done\n"
 }
 
