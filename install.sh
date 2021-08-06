@@ -33,4 +33,4 @@ if [ ! -f "$UMBRELLA_PATH" ]; then
 fi
 
 sudo apt update -qq
-sudo apt install -qq -y dnsutils wget zip unzip parallel
+sudo apt install -qq -y dnsutils unzip parallel
