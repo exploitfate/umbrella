@@ -21,7 +21,7 @@ WantedBy=named.target
   sudo chmod 664 $SYSTEMD_SERVICE_UNIT_PATH
   sudo mkdir -p /etc/systemd/system/named.service.d/
   echo "[Unit]
-Requires=umbrella.service
+Wants=umbrella.service
 " | sudo tee /etc/systemd/system/named.service.d/override.conf > /dev/null 2>&1
   sudo systemctl daemon-reload
   sudo systemctl enable $SERVICE_NAME_FILE
