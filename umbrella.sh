@@ -200,3 +200,5 @@ custom_domains
 # cleanup
 # comment this out if you want to examine any of the files created during a run
 cleanup
+
+exit 0

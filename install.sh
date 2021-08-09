@@ -12,7 +12,6 @@ After=named.service
 
 [Service]
 Type=simple
-Restart=always
 ExecStart=$UMBRELLA_PATH
 
 [Install]
