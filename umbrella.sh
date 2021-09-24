@@ -27,7 +27,7 @@ resolver_port="53"
 # the number of unique domains we'll query for, preferably divisible
 # by four
 # 500 domains is a nice "safe" number
-total_domains="100000"
+total_domains="1000000"
 
 # Use parallel by default
 use_parallel="yes"
