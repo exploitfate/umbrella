@@ -6,7 +6,7 @@ UMBRELLA_PATH=/usr/local/bin/umbrella.sh
 
 if [ ! -f "$SYSTEMD_SERVICE_UNIT_PATH" ]; then
   echo "[Unit]
-Description=Propagate DNS cache with top 200k CISCO Umbrella domains
+Description=Propagate DNS cache with top 1M CISCO Umbrella domains https://s3-us-west-1.amazonaws.com/umbrella-static/index.html
 PartOf=named.service
 After=named.service
 
